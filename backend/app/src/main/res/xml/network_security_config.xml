@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- 10.0.2.2 es el alias que usa el EMULADOR de Android para
+             apuntar al localhost de tu computador. Si pruebas en un
+             celular fisico, reemplazalo por la IP de red de tu PC
+             (ej. 192.168.1.50) y agregala aqui tambien. -->
+        <domain includeSubdomains="false">10.0.2.2</domain>
+    </domain-config>
+</network-security-config>
