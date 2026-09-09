@@ -13,10 +13,10 @@ import java.util.concurrent.TimeUnit
  */
 object RetrofitClient {
 
-    // 10.0.2.2 apunta al localhost de tu PC desde el EMULADOR de Android.
-    // En un dispositivo fisico, cambia esto por la IP de red de tu PC,
-    // por ejemplo "http://192.168.1.50:8000/".
-   private const val BASE_URL = "https://androidmembresias-1.onrender.com/"
+    // URL del backend desplegado en Render. El plan gratuito "duerme"
+    // el servicio tras inactividad, por eso los timeouts de abajo son
+    // generosos (60s) en vez del valor por defecto.
+    private const val BASE_URL = "https://androidmembresias-1.onrender.com/"
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
@@ -24,8 +24,8 @@ object RetrofitClient {
 
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor)
-        .connectTimeout(10, TimeUnit.SECONDS)
-        .readTimeout(10, TimeUnit.SECONDS)
+        .connectTimeout(60, TimeUnit.SECONDS)
+        .readTimeout(60, TimeUnit.SECONDS)
         .build()
 
     val apiService: ApiService by lazy {
