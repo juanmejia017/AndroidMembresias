@@ -16,7 +16,7 @@ object RetrofitClient {
     // 10.0.2.2 apunta al localhost de tu PC desde el EMULADOR de Android.
     // En un dispositivo fisico, cambia esto por la IP de red de tu PC,
     // por ejemplo "http://192.168.1.50:8000/".
-    private const val BASE_URL = "http://10.0.2.2:8000/"
+   private const val BASE_URL = "https://androidmembresias-1.onrender.com/"
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
